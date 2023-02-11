@@ -7,8 +7,7 @@ export default makeStyles((theme) => ({
         padding: '1rem', 
         display: 'flex', 
         justifyContent: 'space-between', 
-        alignItems: 'center', 
-        marginBottom: '2rem',
+        alignItems: 'center',
 
         '&$navMenus': {
             background: 'white',

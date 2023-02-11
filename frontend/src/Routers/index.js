@@ -8,6 +8,10 @@ import NavBar from "../components/NavBar"
 import LoginPage from "../Pages/LoginPage"
 import UserProfile from "../Pages/UserProfile"
 import DefaultTemplate from "../Pages/DefaultTemplate"
+import PrivateRoute from "./PrivateRoute"
+import PublicRoute from "./PublicRoute"
+import FormLists from "../Pages/FormLists"
+import FormSingle from "../Pages/FormSingle"
 
 export default () => {
     return (
@@ -15,14 +19,15 @@ export default () => {
             <NavBar />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/register" element={<RegisterPage />} />
-                <Route path="/profile" element={<UserProfile />} />
                 <Route path="/about" element={<UserProfile />} />
-                <Route path="/">
-                    <Route path="company/:pages" element={<DefaultTemplate />} />
+                <Route path="forms" element={<PrivateRoute><DefaultTemplate /></PrivateRoute>}>
+                    <Route path="" element={<FormLists />} />
+                    <Route path=":formid" element={<FormSingle />} />
                 </Route>
                 <Route path="*" element={<PageNotAvailable />} />
+                <Route path="/login" element={<PublicRoute><LoginPage /></PublicRoute>} />
+                <Route path="/register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
+                <Route path="/profile" element={<PrivateRoute><UserProfile /></PrivateRoute>} />
             </Routes>
         </BrowserRouter>
     )

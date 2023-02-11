@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { TextField, Button, Box, Typography } from '@mui/material'
 import { Field, Form, Formik } from 'formik'
+import { useDispatch } from 'react-redux'
+
+import { loginReducer } from '../../features/auth/authSlice'
 
 const LoginPage = () => {
     const initialValues = {username: '', password: ''}
+    const dispatch = useDispatch()
 
     const handleSubmit = (values, actions) => {
-        console.log(values)
+        dispatch(loginReducer(values))
         actions.resetForm()
     }
 
@@ -25,7 +29,7 @@ const LoginPage = () => {
                         <Box sx={{mb: 5}}>
                             <Field as={TextField} type="password" name="password" placeholder="Password" fullWidth variant="standard" />
                         </Box>
-                        <Button variant="contained" color="success">Login</Button>
+                        <Button variant="contained" color="success" type="submit">Login</Button>
                     </Form>
                 </Formik>
             </div>
