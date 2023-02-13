@@ -12,6 +12,7 @@ const NavBar = () => {
     [
         {name: "Sign In", link: 'login', public: true }, 
         {name: "Sign Up", link: 'register', public: true }, 
+        {name: 'Create', link: "forms/create"},
         {name: 'My Forms', link: "forms"},
         {name: "Username", link: 'profile', public: false}, 
         {name: "Sign Out", link: 'logout', public: false},

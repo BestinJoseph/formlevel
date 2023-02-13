@@ -24,7 +24,7 @@ const DefaultTemplate = () => {
                 </ul>
             </div>
             <div style={{ padding: '3rem 2rem', width: '80%', }}>
-                <div >
+                <div style={{ marginBottom: '1rem', }}>
                     <Link style={{ textDecoration: 'none', fontWeight: 600 }} to="/forms">Forms</Link> { name !== null ? <><IoIosArrowForward style={{ display: 'inline', }}/> {name}</> : null }
                 </div>
                 <Outlet context={[setName]} />

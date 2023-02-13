@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute"
 import PublicRoute from "./PublicRoute"
 import FormLists from "../Pages/FormLists"
 import FormSingle from "../Pages/FormSingle"
+import CreateApplication from "../Pages/CreateApplication"
 
 export default () => {
     return (
@@ -22,6 +23,7 @@ export default () => {
                 <Route path="/about" element={<UserProfile />} />
                 <Route path="forms" element={<PrivateRoute><DefaultTemplate /></PrivateRoute>}>
                     <Route path="" element={<FormLists />} />
+                    <Route path="create" element={<CreateApplication />} />
                     <Route path=":formid" element={<FormSingle />} />
                 </Route>
                 <Route path="*" element={<PageNotAvailable />} />
